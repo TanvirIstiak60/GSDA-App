@@ -8,18 +8,22 @@ class CarouselELearning extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    //Declaring Media Query for Responsive UI
+    var eCarouselHeight = MediaQuery.of(context).size.height;
+    var eCarouselWidth = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      child: Container(
-        height: 310.0,
-        child: CarouselSlider(
-          options: CarouselOptions(
-            aspectRatio: 1.3,
-            viewportFraction: 0.8,
-            enlargeCenterPage: true,
-            enlargeStrategy: CenterPageEnlargeStrategy.height,
-          ),
-          items: ELearningCourse.eLearningCourse.map((eLearningItems) => ELearningItems(eLearningItems)).toList(),
+      height: eCarouselHeight/2.2,
+      width: eCarouselWidth,
+      child: CarouselSlider(
+        options: CarouselOptions(
+          aspectRatio: 1.1,
+          viewportFraction: 0.8,
+          enlargeCenterPage: true,
+          enlargeStrategy: CenterPageEnlargeStrategy.height,
         ),
+        items: ELearningCourse.eLearningCourse.map((eLearningItems) => ELearningItems(eLearningItems)).toList(),
       ),
     );
   }

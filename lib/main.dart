@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ui_challenge/calender_page.dart';
+import 'package:get/get.dart';
 import 'package:ui_challenge/cart_page.dart';
-import 'package:ui_challenge/config/appRouter.dart';
+import 'package:ui_challenge/constants/appRouting.dart';
 import 'package:ui_challenge/home_page.dart';
 import 'package:ui_challenge/login_page.dart';
-import 'package:ui_challenge/menu_items.dart';
-import 'package:ui_challenge/model/menu_item.dart';
-import 'package:ui_challenge/profile_page.dart';
 
-void main(){
+void main() {
   runApp(GlobalEducation());
 }
 
 class GlobalEducation extends StatelessWidget {
-  const GlobalEducation({ Key? key }) : super(key: key);
+
+  
+
+  final authController = UserLoginPage();
+
+  GlobalEducation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Global Skills Development',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FutureBuilder(
+        future: authController.tryAutoLogin(),
+        builder: (context, authResult){
+          if(authResult.connectionState == ConnectionState.waiting){
+            return const CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+            );
+          }
+          else{
+            if(authResult.data == true){
+              return const CartPage();
+            }
+            return const HomePage();
+          }
+        },
       ),
-      onGenerateRoute: AppRouter.onGenerateRoute,
-      initialRoute: HomePage.routeName,
     );
   }
 }

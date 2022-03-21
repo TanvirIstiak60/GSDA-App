@@ -9,28 +9,29 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+      elevation: 0.0,
       color: Colors.black,
-      child: Container(
+      child: SizedBox(
         height: 50.0,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             IconButton(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.home,
                 color: Colors.white,
               ),
               onPressed: (){},
             ),
             IconButton(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.shoppingCart,
                 color: Colors.white,
               ),
               onPressed: (){},
             ),
             IconButton(
-              icon: FaIcon(
+              icon: const FaIcon(
                 FontAwesomeIcons.book,
                 color: Colors.white,
               ),

@@ -3,6 +3,7 @@ import 'package:ui_challenge/model/menu_item.dart';
 class MenuItems{
   static const List<MenuItem> itemFirst = [
     login,
+    signUp,
     home,
     pages,
     eLearningCourses,
@@ -13,6 +14,10 @@ class MenuItems{
 
   static const login = MenuItem(
     text: 'LOGIN',
+  );
+
+  static const signUp = MenuItem(
+    text: 'SIGNUP'
   );
 
   static const home = MenuItem(

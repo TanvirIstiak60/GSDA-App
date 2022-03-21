@@ -31,8 +31,8 @@ class HeadlineItems extends StatelessWidget {
       items: <Widget>[ Stack(
           children: [
             Container(
-              height: screenHeight/3,
-              width: 300.0,
+              height: screenHeight,
+              width: screenWidth,
               decoration: BoxDecoration(
                 color: kBackgroundColor,
                 borderRadius: BorderRadius.circular(20),

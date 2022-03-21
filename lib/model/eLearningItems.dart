@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ui_challenge/constants/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_challenge/model/eLearningCourses.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -18,133 +18,105 @@ class _ELearningItemsState extends State<ELearningItems> {
   @override
   Widget build(BuildContext context) {
 
-    //Declaring Media query for a responsive design
-    var eLearningHeight = MediaQuery.of(context).size.height;
-    var eLearningWidth = MediaQuery.of(context).size.width;
-
-    return Container(
-      padding: const EdgeInsets.all(15.0),
-      child: Stack(
-        children: [
-          Container(
-            height: eLearningHeight,
-            width: eLearningWidth,
-            decoration: BoxDecoration(
-              color: kBackgroundColor,
-              borderRadius: BorderRadius.circular(20),
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5.0),
+          color: Colors.white,
+        ),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 2,
+              child: ClipRRect(
+                child: Image(
+                  image: AssetImage(
+                    widget.eLearningItems.eLearningImage,
+                  ),
+                ),
+              ),
             ),
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 3,
-                  child: ClipRRect(
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),                      
-                    ),
-                    child: Image(
-                      image: AssetImage(widget.eLearningItems.eLearningImage),
-                      fit: BoxFit.cover,
+            Expanded(
+              child: Column(
+                children: <Widget>[
+                  Center(
+                    child: Text(
+                      widget.eLearningItems.eLearningTitle,
+                      style: GoogleFonts.raleway(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 12.0,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    padding: const EdgeInsets.all(5.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          widget.eLearningItems.eLearningTitle,
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 8.0,
-                          ),
-                        ),
-                        Text(
-                          widget.eLearningItems.eLearningShortTitle,
-                          style: const TextStyle(
-                            fontSize: 6.0,
-                            color: Colors.black,
-                          ),
-                        ),
-                        const Divider(
-                          color: Colors.grey,
-                          thickness: 1.0,
-                        ),
-                      ],
+                  Center(
+                    child: Text(
+                      widget.eLearningItems.eLearningShortTitle,
+                      style: const TextStyle(
+                        fontSize: 9.0,
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(left: 3.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.eLearningItems.eLearningReviewText,
-                              style: const TextStyle(
-                                color: Colors.red,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
-                              ),
+                  const Divider(
+                    color: Colors.black,
+                    thickness: 0.5,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            widget.eLearningItems.eLearningReviewText,
+                            style: GoogleFonts.raleway(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
                             ),
-                            RatingBar.builder(
-                              minRating: 0,
-                              itemSize: 20.0,
-                              itemBuilder: (context, _) =>
-                              const Icon(
-                                Icons.star,
-                                color: Colors.red,
-                              ),
-                              updateOnDrag: true,
-                              onRatingUpdate: (rating) => setState(() {
-                                this.rating = rating;
-                              }),
+                          ),
+                          RatingBar.builder(
+                            minRating: 0,
+                            itemSize: 20.0,
+                            itemBuilder: (context, _) =>
+                            const Icon(
+                              Icons.star,
+                              color: Colors.red,
                             ),
-                          ],
-                        ),
+                            updateOnDrag: true,
+                            onRatingUpdate: (rating) => setState(() {
+                              this.rating = rating;
+                            }),
+                          ),
+                        ],
                       ),
                       const VerticalDivider(
-                        color: Colors.grey,
+                        color: Colors.black,
                         thickness: 1.0,
                       ),
-                      Container(
-                        padding: const EdgeInsets.only(right: 3.0),
-                        width: 120,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              widget.eLearningItems.eLearningPreviousPrice,
-                              style: const TextStyle(
-                                fontSize: 13.0,
-                                color: Colors.grey,
-                              ),
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            widget.eLearningItems.eLearningPreviousPrice,
+                            style: const TextStyle(
+                              fontSize: 10.0,
                             ),
-                            Text(
-                              widget.eLearningItems.eLearningLatestPrice,
-                              style: const TextStyle(
-                                color: Colors.red,
-                                fontSize: 25.0,
-                                fontWeight: FontWeight.bold,
-                              ),
+                          ),
+                          Text(
+                            widget.eLearningItems.eLearningLatestPrice,
+                            style: GoogleFonts.raleway(
+                              color: Colors.red,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15.0
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

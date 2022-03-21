@@ -8,12 +8,18 @@ class HeadlineCourseScroller extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //MediaQuery for responsiveness
+    var headLinedScrollerHeight = MediaQuery.of(context).size.height;
+    var headLinedScrollerWidth = MediaQuery.of(context).size.width;
+
     return SizedBox(
-      height: 310.0,
+      height: headLinedScrollerHeight/2.7,
+      width: headLinedScrollerWidth,
       child: CarouselSlider(
         options: CarouselOptions(
-          aspectRatio: 1.3,
-          viewportFraction: 0.7,
+          aspectRatio: 1,
+          viewportFraction: 0.8,
           enlargeCenterPage: true,
           enlargeStrategy: CenterPageEnlargeStrategy.height,
         ),

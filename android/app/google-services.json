@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "740878167473",
+    "project_id": "global-skills-development-app",
+    "storage_bucket": "global-skills-development-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740878167473:android:75a4f80bba63d66f1d2190",
+        "android_client_info": {
+          "package_name": "com.example.ui_challenge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740878167473-nte532hja17ku36jif17akk06bbqt1t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOK8Y0nDjNt4o5ITq-97QNWBpVlb05lis"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740878167473-nte532hja17ku36jif17akk06bbqt1t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

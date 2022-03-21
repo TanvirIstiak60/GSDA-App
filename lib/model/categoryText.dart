@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+// ignore: must_be_immutable
 class CategoryText extends StatelessWidget {
   
   String startingText;
   String categoryText;
-  CategoryText(this.startingText, this.categoryText);
+  CategoryText(this.startingText, this.categoryText, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [
           Text(
             startingText,
-            style: TextStyle(
+            style: GoogleFonts.raleway(
               fontSize: 20.0,
               color: Colors.yellow,
               fontWeight: FontWeight.bold
             ),
           ),
-          SizedBox(width: 10.0,),
+          const SizedBox(width: 10.0,),
           Text(
             categoryText,
-            style: TextStyle(
+            style: GoogleFonts.raleway(
               fontSize: 20.0,
               color: Colors.black,
               fontWeight: FontWeight.bold,
