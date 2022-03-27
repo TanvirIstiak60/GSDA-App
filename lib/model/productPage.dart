@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_challenge/Widgets/widgets.dart';
+import 'package:ui_challenge/login_page.dart';
 import 'package:ui_challenge/model/classroomTopic.dart';
 import 'package:ui_challenge/model/purchasePage.dart';
 
@@ -339,6 +340,7 @@ class ProductPage extends StatelessWidget {
                     primary: Colors.yellow,
                   ),
                   onPressed: (){
+                    
                     Navigator.pushNamed(context, '/coursePurchase', arguments: classroomTopics);
                   }, 
                   child: Text(

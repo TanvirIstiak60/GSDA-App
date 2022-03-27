@@ -20,6 +20,8 @@ class GlobalEducation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      onGenerateRoute: AppRouter.onGenerateRoute,
+      initialRoute: '/',
       debugShowCheckedModeBanner: false,
       home: FutureBuilder(
         future: authController.tryAutoLogin(),

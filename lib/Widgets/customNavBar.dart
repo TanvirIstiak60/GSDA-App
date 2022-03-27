@@ -25,7 +25,7 @@ class CustomNavBar extends StatelessWidget {
             ),
             IconButton(
               icon: const FaIcon(
-                FontAwesomeIcons.shoppingCart,
+                FontAwesomeIcons.user,
                 color: Colors.white,
               ),
               onPressed: (){},
