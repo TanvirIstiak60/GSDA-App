@@ -19,7 +19,7 @@ class UserLoginPage extends StatefulWidget {
 
   //Creating function for Navigating to the home page after our Textfiels validation
   Future login(BuildContext cont) async {
-    var url = "http://10.0.2.2:8080/localConnection/login.php";
+    var url = "http://localhost:8080/localConnection/login.php";
     var response = await http.post(Uri.parse(url), body:{
       "email" : userEmail.text,
       "password" : userPassword.text,
@@ -29,10 +29,7 @@ class UserLoginPage extends StatefulWidget {
     // ignore: avoid_print
     print('body: [${response.body}]');
 
-      
-      
-
-      if( json.decode(response.body) == "success" ){
+      if( json.decode(response.body) == "success"){
 
         //Shared preferences for storing data 
         var any = await SharedPreferences.getInstance();
@@ -75,7 +72,7 @@ class UserLoginPage extends StatefulWidget {
 
 class _UserLoginPageState extends State<UserLoginPage> { 
   Future getData() async {
-    http.Response response =  await http.get(Uri.parse("http://10.0.2.2:8080/localConnection/login.php"));
+    http.Response response =  await http.get(Uri.parse("http://localhost:8080/localConnection/login.php"));
     debugPrint(response.body);
   }
 

@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
               height: 40,
             ),
             CategoryText('|', 'ACCREDITION AUTHORITY'),
-            AccreditionScroller(),
+            const AccreditionScroller(),
           ],
         ),
       ),

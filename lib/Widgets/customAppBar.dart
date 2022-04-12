@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ui_challenge/home_page.dart';
 import 'package:ui_challenge/login_page.dart';
 import 'package:ui_challenge/menu_items.dart';
 import 'package:ui_challenge/model/menu_item.dart';
@@ -64,6 +65,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget{
           MaterialPageRoute(builder: (context) => const SignUp()),
         );
       break;
+
+      case MenuItems.home:
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
     }
   }
 

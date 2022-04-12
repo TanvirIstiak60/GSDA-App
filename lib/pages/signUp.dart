@@ -4,11 +4,29 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../home_page.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({ Key? key }) : super(key: key);
 
   @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  @override
   Widget build(BuildContext context) {
+
+    //Controller for our signUp page fields
+    TextEditingController nameController = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController phoneController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+    TextEditingController confirmPasswordController = TextEditingController();
+
+    
+    @override
+    void initState(){
+      super.initState();
+    }
 
     //Declaring media query for responsive UI
     var signUpHeight = MediaQuery.of(context).size.height;
